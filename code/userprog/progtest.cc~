@@ -88,14 +88,13 @@ ConsoleTest (char *in, char *out)
 	#ifdef CHANGED	
 	  readAvail->P ();	// wait for character to arrive
 	  ch = console->GetChar ();
-	if(ch!='\n'){
 	  console->PutChar ('<');
 	  writeDone->P ();
 	  console->PutChar (ch);	// echo it!
 	  writeDone->P ();	// wait for write to finish
  	 console->PutChar ('>');
 	writeDone->P ();
-	 }
+	 
 
 	 if (ch == EOF)	// if ^C quit
 		return;
